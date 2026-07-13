@@ -43,7 +43,7 @@ function collect_password() {
         alert("Password must be at least 6 characters long!");
         return false;
     }
-    
+    console.log("Password: " + password);
     return true;
 }
 

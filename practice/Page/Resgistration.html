@@ -7,9 +7,14 @@
         <script src="../JS/Script.js"></script>
     </head>
     <body>
-        <div style="text-align: right; padding: 10px;">
-        <a href="https://sites.google.com/view/fahid-portfolio/home" target="_blank">Official Website</a>
-    </div>
+        <div style="background-color: black; color: white; text-align: center; padding: 15px;">
+    <h1>Registration Form</h1>
+</div>
+
+<div style="background-color: rgb(94, 180, 193); color: white; padding: 15px;">
+    <a href="https://sites.google.com/view/fahid-portfolio/home" target="_blank">Official Website</a>
+</div>
+        
         <div class="container">
             <form onsubmit="return validateForm()">
                 <fieldset>
@@ -33,6 +38,21 @@
                              <td><input type="password" id="Password" name="Password" placeholder="confirm"></td>
                             <td><input type="number" id="Age" name="Age" placeholder="Enter age"></td>
                         </tr>
+                        <tr>
+        <td><label>Gender</label></td>
+        <td><label for="Nationality">Nationality</label></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        
+        <td>
+    <input type="radio" id="Male" name="gender" value="Male"> Male
+    <input type="radio" id="Female" name="gender" value="Female"> Female
+</td>
+        <td><input type="text" id="Nationality" name="Nationality" placeholder="Enter nationality"></td>
+        <td></td>
+    </tr>
                         <tr>
                             <td><label for="ExpDate">Experiment Date</label></td>
                             <td><label for="Phone">Phone Number</label></td>

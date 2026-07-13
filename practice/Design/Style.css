@@ -154,7 +154,9 @@ input[type="reset"]:hover {
     font-size: 14px;
     color: #718096;
 }
-
+a {
+    text-decoration: none;
+}
 .redirect-link a {
     color: #4a90e2;
     text-decoration: none;
