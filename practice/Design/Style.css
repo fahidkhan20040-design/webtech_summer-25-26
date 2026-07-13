@@ -1,0 +1,191 @@
+/* --- Global Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Official Website Link Layout --- */
+div[style*="text-align: right"] {
+    width: 100%;
+    max-width: 650px;
+    margin-bottom: 10px;
+}
+
+div[style*="text-align: right"] a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+div[style*="text-align: right"] a:hover {
+    color: #357abd;
+    text-decoration: underline;
+}
+
+/* --- Container Box Design --- */
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px; /* Registration form er layout e adjustment */
+}
+
+/* Sign-in page er jnno container-ti ektu choto korle bhalo dekhay */
+body:has(title:contains("Sign In")) .container,
+fieldset:not(:has(input[id="Fullname"]))-parent { 
+    /* Fallback width handle korar jnno custom width */
+}
+
+/* --- Fieldset & Legend Styling --- */
+fieldset {
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #2d3748;
+    padding: 0 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* --- Table & Form Layout --- */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 15px 10px;
+    margin-bottom: 15px;
+}
+
+td {
+    vertical-align: top;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+/* --- Input Fields Styling --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #2d3748;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* --- Buttons Styling --- */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    text-transform: uppercase;
+}
+
+input[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+input[type="reset"] {
+    background-color: #edf2f7;
+    color: #4a5568;
+}
+
+input[type="reset"]:hover {
+    background-color: #e2e8f0;
+}
+
+/* --- Redirect Links Styling --- */
+.redirect-link p {
+    font-size: 14px;
+    color: #718096;
+}
+
+.redirect-link a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.redirect-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Layout for Mobile Devices --- */
+@media (max-width: 600px) {
+    table, tr, td {
+        display: block;
+        width: 100%;
+    }
+    
+    table {
+        border-spacing: 0;
+    }
+    
+    td {
+        margin-bottom: 12px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    input[type="submit"],
+    input[type="reset"] {
+        width: 100%;
+    }
+}
