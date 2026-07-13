@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="../Design/Style.css">
+    <script src="../JS/Script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="return validateLogin()">
+            <fieldset>
+                <legend>SIGN-IN</legend>
+                <table>
+                    <tr>
+                        <td><label for="Email">Email address</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" id="Email" name="Email" placeholder="Enter email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Password">Password</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="Password" name="Password" placeholder="Enter password"></td>
+                    </tr>
+                </table>
+                <div class="form-actions">
+                    <input type="submit" value="Login">
+                    <input type="reset" value="CLEAR">
+                </div>
+
+                <div class="redirect-link" style="margin-top: 15px; text-align: center;">
+                        <p>Dont have an account? <a href="Resgistration.html">Signup here</a></p>
+                    </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="../Design/Style.css">
+        <script src="../JS/Script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <form onsubmit="return validateForm()">
+                <fieldset>
+                    <legend>STUDENT INFORMATION</legend>
+                    <table>
+                        <tr>
+                            <td><label for="Fullname">Full name</label></td>
+                            <td><label for="Email">Email address</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="Fullname" name="Fullname" placeholder="Enter name"></td>
+                            <td><input type="email" id="Email" name="Email" placeholder="Enter email"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Password">Password</label></td>
+                              <td><label for="Password">confirm Password</label></td>
+                            <td><label for="Age">Age</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="password" id="Password" name="Password" placeholder="Enter password"></td>
+                             <td><input type="password" id="Password" name="Password" placeholder="confirm"></td>
+                            <td><input type="number" id="Age" name="Age" placeholder="Enter age"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="ExpDate">Experiment Date</label></td>
+                            <td><label for="Phone">Phone Number</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="date" id="ExpDate" name="ExpDate"></td>
+                            <td><input type="tel" id="Phone" name="Phone" placeholder="+880 XXXX XXXXXX"></td>
+                        </tr>
+                    </table>
+                    <div class="form-actions">
+                        <input type="submit" value="SUBMIT">
+                        <input type="reset" value="CLEAR">
+                    </div>
+
+                    <div class="redirect-link" style="margin-top: 15px; text-align: center;">
+                        <p>Already have an account? <a href="signin.html">Sign In here</a></p>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
