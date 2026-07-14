@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../Design/Style.css">
+    <script src="../JS/script.js"></script>
+    <title>Sign in page</title>
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="return collect_data()">
+        <fieldset>
+            <legend>INFORMATION</legend>
+            
+        <table>
+            <tr>
+                <td><label for="Username">Username:</label></td>
+                <td>
+                    <input type="text" id="Username" name="Username"
+                           placeholder="Enter Your Name">
+                           <p id="NameError"> </p>
+                </td>
+                  </tr>
+
+                     <tr>
+                    <td> <label for="password"> Password: </label> </td>
+                    <td> <input type="password" id="password" name="password"> </td>
+                </tr>
+<tr>
+        <td> 
+        <input type="submit" id="submit" name="submit">
+        <br>
+        <br>
+        <input type="reset" id="reset" name="reset" value="Reset">
+
+        </td>
+       </tr>
+        
+        </table>
+        </fieldset>
+        </form>
+    </div>
+</body>
+</html>
