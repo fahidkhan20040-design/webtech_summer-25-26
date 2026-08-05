@@ -7,11 +7,25 @@
     <script src="../JS/Script.js"></script>
 </head>
 <body>
-    <div class="container">
+    <!-- Panda Animation -->
+    <div class="panda-wrap">
+        <div class="panda">
+            <div class="ear-l"></div>
+            <div class="ear-r"></div>
+            <div class="eye-l"></div>
+            <div class="eye-r"></div>
+            <div class="nose"></div>
+            <div class="paw-l"></div>
+            <div class="paw-r"></div>
+        </div>
+    </div>
+
+    <!-- Form Container -->
+    <div class="container" style="position: relative; z-index: 2;">
         <form onsubmit="return validateLogin()">
-            <fieldset>
-                <legend>SIGN-IN</legend>
-                <table>
+            <fieldset style="position: relative; margin-top: 15px;">
+                <legend style="position: absolute; top: -20px; left: 15px;">SIGN-IN</legend>
+                <table style="margin-top: 10px;">
                     <tr>
                         <td><label for="Email">Email address</label></td>
                     </tr>
@@ -30,9 +44,9 @@
                     <input type="reset" value="CLEAR">
                 </div>
 
-                <div class="redirect-link" style="margin-top: 15px; text-align: center;">
-                        <p>Dont have an account? <a href="Resgistration.html">Signup here</a></p>
-                    </div>
+                <div class="redirect-link">
+                    <p>Don't have an account? <a href="Resgistration.html">Signup here</a></p>
+                </div>
             </fieldset>
         </form>
     </div>

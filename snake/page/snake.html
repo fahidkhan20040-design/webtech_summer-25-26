@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Snake Game</title>
+    <link rel="stylesheet" href="../design/style.css">
+</head>
+<body>
+
+    <h1>Snake Game</h1>
+    <div id="score-board">Score: <span id="score">0</span> | High Score: <span id="high-score">0</span></div>
+
+    <div id="game-container">
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        <div id="game-over-screen">
+            <p>GAME OVER</p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+
+    <div class="controls-info">
+        কীবোর্ডের <b>Arrow Keys</b> (Up, Down, Left, Right) দিয়ে সাপটি নিয়ন্ত্রণ করো।
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

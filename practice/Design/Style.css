@@ -3,76 +3,130 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-light: rgba(79, 70, 229, 0.1);
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: var(--bg-gradient);
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow-x: hidden;
 }
 
-/* --- Official Website Link Layout --- */
-div[style*="text-align: right"] {
-    width: 100%;
-    max-width: 650px;
-    margin-bottom: 10px;
+/* --- Page Transition Animations (Before/After State) --- */
+.page-transition {
+    animation: zoomInSmooth 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-div[style*="text-align: right"] a {
-    color: #4a90e2;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: color 0.3s ease;
+.page-exit {
+    animation: zoomOutSmooth 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-div[style*="text-align: right"] a:hover {
-    color: #357abd;
-    text-decoration: underline;
+@keyframes zoomInSmooth {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes zoomOutSmooth {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.96);
+        filter: blur(4px);
+    }
 }
 
 /* --- Container Box Design --- */
 .container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
     width: 100%;
-    max-width: 650px; /* Registration form er layout e adjustment */
+    max-width: 650px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Sign-in page er jnno container-ti ektu choto korle bhalo dekhay */
-body:has(title:contains("Sign In")) .container,
-fieldset:not(:has(input[id="Fullname"]))-parent { 
-    /* Fallback width handle korar jnno custom width */
+/* Sign-in page er jnno size adjust */
+body:has(title:contains("Sign In")) .container {
+    max-width: 440px;
 }
 
-/* --- Fieldset & Legend Styling --- */
+/* --- Decorative Top Border Accent --- */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #06b6d4, #3b82f6);
+}
+
+/* --- Fieldset & Colorful Legend Styling --- */
 fieldset {
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    transition: var(--transition-smooth);
+    background: #ffffff;
+}
+
+fieldset:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.08);
 }
 
 legend {
-    font-weight: bold;
-    color: #2d3748;
-    padding: 0 10px;
-    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    padding: 8px 18px;
+    font-size: 14px;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    margin-left: 10px;
 }
 
 /* --- Table & Form Layout --- */
 table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 15px 10px;
-    margin-bottom: 15px;
+    border-spacing: 16px 12px;
+    margin-bottom: 10px;
 }
 
 td {
@@ -81,11 +135,12 @@ td {
 
 label {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #4a5568;
-    margin-bottom: 5px;
-    text-transform: capitalize;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* --- Input Fields Styling --- */
@@ -96,18 +151,31 @@ input[type="number"],
 input[type="date"],
 input[type="tel"] {
     width: 100%;
-    padding: 10px 14px;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
     font-size: 14px;
-    color: #2d3748;
+    color: var(--text-main);
+    background-color: #f8fafc;
     outline: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-smooth);
 }
 
 input:focus {
-    border-color: #1c508d;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    border-color: var(--primary);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px var(--primary-light), 0 4px 12px rgba(79, 70, 229, 0.1);
+    transform: translateY(-1px);
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--primary);
+    cursor: pointer;
+    margin-right: 6px;
 }
 
 /* --- Buttons Styling --- */
@@ -115,79 +183,243 @@ input:focus {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 input[type="submit"],
 input[type="reset"] {
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: bold;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 700;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 120px;
+    transition: var(--transition-smooth);
+    min-width: 130px;
     text-transform: uppercase;
+    letter-spacing: 0.8px;
+    position: relative;
 }
 
 input[type="submit"] {
-    background-color: #4a90e2;
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
     color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 input[type="submit"]:hover {
-    background-color: #357abd;
+    background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.btn-clicked {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease !important;
 }
 
 input[type="reset"] {
-    background-color: #edf2f7;
-    color: #4a5568;
+    background-color: #f1f5f9;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
 }
 
 input[type="reset"]:hover {
     background-color: #e2e8f0;
+    color: var(--text-main);
+    transform: translateY(-2px);
 }
 
 /* --- Redirect Links Styling --- */
+.redirect-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .redirect-link p {
     font-size: 14px;
-    color: #718096;
+    color: var(--text-muted);
 }
+
 a {
     text-decoration: none;
 }
+
 .redirect-link a {
-    color: #4a90e2;
-    text-decoration: none;
+    color: var(--primary);
     font-weight: 600;
+    transition: var(--transition-smooth);
+    display: inline-block;
+    position: relative;
+}
+
+.redirect-link a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.redirect-link a:hover::after {
+    width: 100%;
 }
 
 .redirect-link a:hover {
-    text-decoration: underline;
+    color: #3730a3;
+    transform: translateY(-1px);
 }
 
 /* --- Responsive Layout for Mobile Devices --- */
 @media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
     table, tr, td {
         display: block;
         width: 100%;
     }
-    
     table {
         border-spacing: 0;
     }
-    
     td {
         margin-bottom: 12px;
     }
-    
     .form-actions {
         flex-direction: column;
     }
-    
     input[type="submit"],
     input[type="reset"] {
         width: 100%;
     }
+}
+/* =========================================
+   PANDA MASCOT ANIMATION (For Sign In)
+   ========================================= */
+.panda-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -55px; /* এটি বাড়িয়ে দেওয়া হয়েছে যাতে পান্ডা আরও উপরে উঠে আসে */
+    position: relative;
+    z-index: 10;          /* ফর্মের ওপর সঠিকভাবে ভেসে থাকার জন্য z-index বাড়িয়ে দেওয়া হলো */
+}
+.panda {
+    width: 110px;
+    height: 110px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 4px solid #1e293b;
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+.panda .ear-l, .panda .ear-r {
+    position: absolute;
+    width: 32px; height: 32px;
+    background: #1e293b;
+    border-radius: 50%;
+    top: -8px; z-index: -1;
+}
+.panda .ear-l { left: 0px; transform: rotate(-30deg); }
+.panda .ear-r { right: 0px; transform: rotate(30deg); }
+
+.panda .eye-l, .panda .eye-r {
+    position: absolute;
+    width: 22px; height: 30px;
+    background: #1e293b;
+    border-radius: 50% 50% 40% 40%;
+    top: 35px;
+}
+.panda .eye-l { left: 22px; transform: rotate(-15deg); }
+.panda .eye-r { right: 22px; transform: rotate(15deg); }
+
+.panda .eye-l::before, .panda .eye-r::before {
+    content: '';
+    position: absolute;
+    width: 8px; height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    top: 4px; left: 6px;
+}
+.panda .nose {
+    position: absolute;
+    width: 14px; height: 9px;
+    background: #1e293b;
+    border-radius: 50%;
+    top: 65px; left: 50%;
+    transform: translateX(-50%);
+}
+.panda .paw-l, .panda .paw-r {
+    position: absolute;
+    width: 35px; height: 35px;
+    background: #1e293b;
+    border-radius: 50%;
+    bottom: -20px;
+    transition: 0.4s ease-in-out;
+    z-index: 10;
+    opacity: 0;
+}
+.panda .paw-l { left: 15px; }
+.panda .paw-r { right: 15px; }
+
+/* পাসওয়ার্ড ফিল্ডে ক্লিক করলে এই ক্লাসটি যুক্ত হবে */
+.show-paws .paw-l {
+    bottom: 35px;
+    left: 20px;
+    opacity: 1;
+}
+.show-paws .paw-r {
+    bottom: 35px;
+    right: 20px;
+    opacity: 1;
+}
+
+/* =========================================
+   LAMP ANIMATION (For Registration)
+   ========================================= */
+/* --- Lamp Post moved to Left & Interactive Form --- */
+/* --- Left Side Lamp (No Text) --- */
+/* --- Larger Lamp Post on the Left --- */
+.lamp-wrap {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    transform: scale(1.6); /* পুরো ল্যাম্পটিকে একবারে ১.৬ গুণ বড় করার জন্য */
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+}
+
+.lamp-wrap:hover {
+    transform: scale(1.75); /* হোভার করলে আরও একটু বড় হবে */
+}
+
+/* পুরো পেজের কন্টেইনার এবং হেডার একসাথে হাইড/শো করার জন্য */
+.page-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.page-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* পেজ লেআউট মেইনটেইন করার জন্য বডি পজিশন */
+body {
+    position: relative;
 }

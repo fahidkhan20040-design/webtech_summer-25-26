@@ -6,73 +6,100 @@
         <link rel="stylesheet" href="../Design/Style.css">
         <script src="../JS/Script.js"></script>
     </head>
-    <body>
-        <div style="background-color: black; color: white; text-align: center; padding: 15px;">
-    <h1>Registration Form</h1>
-</div>
+    <body style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding-top: 40px; position: relative;">
 
-<div style="background-color: rgb(94, 180, 193); color: white; padding: 15px;">
-    <a href="https://sites.google.com/view/fahid-portfolio/home" target="_blank">Official Website</a>
-</div>
-        
-        <div class="container">
-            <form onsubmit="return validateForm()">
-                <fieldset>
-                    <legend>STUDENT INFORMATION</legend>
-                    <table>
-                        <tr>
-                            <td><label for="Fullname">Full name</label></td>
-                            <td><label for="Email">Email address</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" id="Fullname" name="Fullname" placeholder="Enter name"></td>
-                            <td><input type="email" id="Email" name="Email" placeholder="Enter email"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="Password">Password</label></td>
-                              <td><label for="Password">confirm Password</label></td>
-                            <td><label for="Age">Age</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="password" id="Password" name="Password" placeholder="Enter password"></td>
-                             <td><input type="password" id="Password" name="Password" placeholder="confirm"></td>
-                            <td><input type="number" id="Age" name="Age" placeholder="Enter age"></td>
-                        </tr>
-                        <tr>
-        <td><label>Gender</label></td>
-        <td><label for="Nationality">Nationality</label></td>
-        <td></td>
-    </tr>
-
-    <tr>
-        
-        <td>
-    <input type="radio" id="Male" name="gender" value="Male"> Male
-    <input type="radio" id="Female" name="gender" value="Female"> Female
-</td>
-        <td><input type="text" id="Nationality" name="Nationality" placeholder="Enter nationality"></td>
-        <td></td>
-    </tr>
-                        <tr>
-                            <td><label for="ExpDate">Experiment Date</label></td>
-                            <td><label for="Phone">Phone Number</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="date" id="ExpDate" name="ExpDate"></td>
-                            <td><input type="tel" id="Phone" name="Phone" placeholder="+880 XXXX XXXXXX"></td>
-                        </tr>
-                    </table>
-                    <div class="form-actions">
-                        <input type="submit" value="SUBMIT">
-                        <input type="reset" value="CLEAR">
-                    </div>
-
-                    <div class="redirect-link" style="margin-top: 15px; text-align: center;">
-                        <p>Already have an account? <a href="signin.html">Sign In here</a></p>
-                    </div>
-
-                </fieldset>
-            </form>
+        <!-- Left Side Lamp (Only Lamp, No Text) -->
+        <div class="lamp-wrap" title="Click to turn on / show form">
+            <div class="lamp-cord" style="height: 50px; width: 3px; background: #cbd5e1;"></div>
+            <div class="lamp-shade" style="width: 60px; height: 25px; background: linear-gradient(135deg, #fef08a, #eab308); border-radius: 30px 30px 0 0; box-shadow: 0 0 15px rgba(234, 179, 8, 0.6);"></div>
+            <div class="lamp-light" style="width: 120px; height: 60px; background: linear-gradient(to bottom, rgba(254, 240, 138, 0.4), transparent); clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);"></div>
         </div>
+
+        <!-- Main Content Wrapper (Hidden initially, opens on Lamp click) -->
+        <div id="main-content" class="page-hidden" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            
+            <!-- Header Section -->
+            <div style="background-color: rgb(12, 12, 12); color: white; text-align: center; padding: 15px; border-radius: 8px; margin-bottom: 10px; width: 100%; max-width: 650px; z-index: 10;">
+                <h1>Registration Form</h1>
+            </div>
+
+            <div style="background-color: rgb(94, 180, 193); color: white; padding: 10px; text-align: center; border-radius: 8px; margin-bottom: 25px; width: 100%; max-width: 650px; z-index: 10;">
+                <a href="https://sites.google.com/view/fahid-portfolio/home" target="_blank" style="color: white; font-weight: bold; text-decoration: none;">Official Website</a>
+            </div>
+            
+            <!-- Form Container -->
+            <div class="container" style="position: relative; z-index: 10;">
+                <form onsubmit="return validateForm()">
+                    <fieldset style="position: relative; margin-top: 15px;">
+                        <legend style="position: absolute; top: -20px; left: 15px;">STUDENT INFORMATION</legend>
+                        <table style="margin-top: 10px;">
+                            <tr>
+                                <td><label for="Fullname">Full Name</label></td>
+                                <td><label for="Email">Email Address</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="Fullname" name="Fullname" placeholder="Enter name"></td>
+                                <td><input type="email" id="Email" name="Email" placeholder="Enter email"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="Password">Password</label></td>
+                                <td><label for="ConfirmPassword">Confirm Password</label></td>
+                                <td><label for="Age">Age</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" id="Password" name="Password" placeholder="Enter password"></td>
+                                <td><input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm"></td>
+                                <td><input type="number" id="Age" name="Age" placeholder="Enter age"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Gender</label></td>
+                                <td><label for="Nationality">Nationality</label></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" id="Male" name="gender" value="Male"> Male
+                                    <input type="radio" id="Female" name="gender" value="Female"> Female
+                                </td>
+                                <td><input type="text" id="Nationality" name="Nationality" placeholder="Enter nationality"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ExpDate">Experiment Date</label></td>
+                                <td><label for="Phone">Phone Number</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="date" id="ExpDate" name="ExpDate"></td>
+                                <td><input type="tel" id="Phone" name="Phone" placeholder="+880 XXXX XXXXXX"></td>
+                            </tr>
+                        </table>
+                        <div class="form-actions">
+                            <input type="submit" value="SUBMIT">
+                            <input type="reset" value="CLEAR">
+                        </div>
+
+                        <div class="redirect-link">
+                            <p>Already have an account? <a href="signin.html">Sign In here</a></p>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- JavaScript for Lamp Click Toggle -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const lampWrap = document.querySelector(".lamp-wrap");
+                const mainContent = document.getElementById("main-content");
+
+                if (lampWrap && mainContent) {
+                    lampWrap.addEventListener("click", function () {
+                        mainContent.classList.toggle("page-hidden");
+                        mainContent.classList.toggle("page-visible");
+                    });
+                }
+            });
+        </script>
     </body>
 </html>

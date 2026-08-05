@@ -29,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             }
             else{
                 echo "Invalid or Empty Email";
+                echo "<br>";
             }
 
             if(!empty($website))

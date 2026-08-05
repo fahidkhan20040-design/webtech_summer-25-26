@@ -20,18 +20,23 @@ include "../Controller/Loginvalidation.php";
 
                 if(name.length === 0)
                 {
-                    message+="User Name is required";
+                    message+="User Name is required ";
+                    valid = false;
+                }
+                else if(name.length <5)
+                {
+                 message+="User Name Should be 5 Char ";
                     valid = false;
                 }
                 if(email.length === 0)
                 {
-                    message+="E-mail is required";
+                    message+="E-mail is required ";
                     valid = false;
                 }
 
                 if(!female && !male && !other)
                 {
-                    message += "Gender is required";
+                    message += "Gender is required ";
                     valid = false;
                 }
                 if(!valid)

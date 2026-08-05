@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: bisque;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.container{
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 20px;
+}
+
+div.header{
+    background-color: black;
+    padding: 20px 0px;
+    justify-content: center;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+fieldset{
+    border-radius: 30px;
+    padding: 10px;
+    background-color: cornsilk;
+}
+
+legend{
+    padding: 0 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+table{
+    width: 100%;
+}
+
+td{
+    padding: 6px;
+}
+
+label{
+    display: inline-block;
+    color: black;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 14px;
+}
+
+input[type="submit"]{
+    background-color: red;
+    color: white;
+    padding: 12px 15px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover{
+    background-color: black;
+}
+
+input[type="submit"]:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+#LoginMessage{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
